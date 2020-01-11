@@ -48,6 +48,14 @@ nfl_suspensions_dt[is.na(Description_Grouped), Description_Grouped := "Other"]
 # checking groups
 table(nfl_suspensions_dt$description, nfl_suspensions_dt$Description_Grouped)
 
+# making games numeric
+nfl_suspensions_dt[, games_num := as.numeric(games)]
+
+# saving new data ---------------------------------------------------------
+
+# saving the data for different plots
+write_csv(nfl_suspensions_dt, "nfl_suspensions_dt.csv")
+
 
 
 
